@@ -1,0 +1,17 @@
+<!ELEMENT torneo (participante+)> <!--Requiere + de 1 participante -->
+<!--se quiere guardar el año en que se realizó, el anterior ganador (su id) -->
+<!--unico torneo-->
+<!ATTLIST torneo  
+  edicion CDATA #REQUIRED 
+  anteriorGanador CDATA #REQUIRED 
+> <!--Atributos requeridos del elemento torneo -->
+<!ELEMENT participante (nombre, edad, pais, cabezaDeSerie?)> <!--elementos para participante con elemento opcional cabeza de serie, El atributo idP hace de identificador
+y El atributo pareja es el identificador de otro participante que forzosamente debe estar presente en el fichero. -->
+<!ATTLIST participante
+  idP ID #REQUIRED   
+  pareja IDREF #REQUIRED
+>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT edad (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT cabezaDeSerie EMPTY>
